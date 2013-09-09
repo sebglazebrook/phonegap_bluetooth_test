@@ -15,3 +15,11 @@ window.bluetoothLE = {
     }
     
 }
+
+window.bluetoothEvents = {
+    
+    foundPeripheral: function(){
+        console.log('found peripheral');
+    }
+    
+}

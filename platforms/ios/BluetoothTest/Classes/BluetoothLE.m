@@ -44,7 +44,15 @@
                                          resultWithStatus    : CDVCommandStatus_OK
                                          ];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-        
+       
     }
+
+- (void)centralManager:(CBCentralManager *)central
+            didDiscoverPeripheral:(CBPeripheral *)peripheral
+            advertisementData:(NSDictionary *)advertisementData
+            RSSI:(NSNumber *)RSSI {
+    
+        [self.webView stringByEvaluatingJavaScriptFromString:@"window.bluetoothEvents.foundPeripheral()"];
+}
 
 @end
