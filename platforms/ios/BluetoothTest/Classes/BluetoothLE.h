@@ -15,4 +15,6 @@
     
     -(void) stopScanning:(CDVInvokedUrlCommand *)command;
 
+    -(void) numberOfPeripherals:(CDVInvokedUrlCommand *)command;
+
 @end

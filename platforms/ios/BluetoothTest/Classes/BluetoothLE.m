@@ -47,12 +47,23 @@
        
     }
 
-- (void)centralManager:(CBCentralManager *)central
+    -(void) numberOfPeripherals:(CDVInvokedUrlCommand *)command {
+    
+        NSUInteger numberOfPeripherals = [bluetoothManager count];
+        CDVPluginResult *pluginResult = [ CDVPluginResult
+                                     resultWithStatus    : CDVCommandStatus_OK
+                                     messageAsInt        :  (int)numberOfPeripherals
+                                     ];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    
+    }
+
+    - (void)centralManager:(CBCentralManager *)central
             didDiscoverPeripheral:(CBPeripheral *)peripheral
             advertisementData:(NSDictionary *)advertisementData
             RSSI:(NSNumber *)RSSI {
     
         [self.webView stringByEvaluatingJavaScriptFromString:@"window.bluetoothEvents.foundPeripheral()"];
-}
+    }
 
 @end

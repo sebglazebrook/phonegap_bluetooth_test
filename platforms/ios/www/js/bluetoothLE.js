@@ -12,6 +12,13 @@ window.bluetoothLE = {
                             "BluetoothLE",
                             "stopScanning",
                             [resultType]);
+    },
+    
+    numberOfPeripherals: function(success, fail, resultType){
+        return Cordova.exec(success, fail,
+                            "BluetoothLE",
+                            "numberOfPeripherals",
+                            [resultType]);
     }
     
 }
