@@ -8,7 +8,17 @@ bluetoothLE.startScanning(
   ''
 )
 
-bluetoothLE.discoveredPeripherals(
+bluetoothLE.numberOfDiscoveredPeripherals(
+  function(number){
+    console.log(number);
+  },
+  function(){
+    console.log('failure');
+  },
+  ''
+)
+
+bluetoothLE.requestConnectedPeripherals(
   function(){
     console.log('success');
   },
@@ -16,4 +26,14 @@ bluetoothLE.discoveredPeripherals(
     console.log('failure');
   },
   ''
+)
+
+bluetoothLE.fetchPeripheral(
+  function(peripheral){
+    console.log(peripheral);
+  },
+  function(){
+    console.log('failure');
+  },
+  '0'
 )

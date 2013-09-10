@@ -14,11 +14,25 @@ window.bluetoothLE = {
                             [resultType]);
     },
     
-    numberOfPeripherals: function(success, fail, resultType){
+    numberOfDiscoveredPeripherals: function(success, fail, resultType){
         return Cordova.exec(success, fail,
                             "BluetoothLE",
-                            "numberOfPeripherals",
+                            "numberOfDiscoveredPeripherals",
                             [resultType]);
+    },
+    
+    requestConnectedPeripherals: function(success, fail, resultType){
+        return Cordova.exec(success, fail,
+                        "BluetoothLE",
+                        "requestConnectedPeripherals",
+                        [resultType]);
+    },
+
+    fetchPeripheral: function(success, fail, resultType){
+        return Cordova.exec(success, fail,
+                        "BluetoothLE",
+                        "fetchPeripheral",
+                        [resultType]);
     }
     
 }
@@ -26,7 +40,11 @@ window.bluetoothLE = {
 window.bluetoothEvents = {
     
     foundPeripheral: function(){
-        console.log('found peripheral');
-    }
+        console.log('found a peripheral');
+    },
     
+    foundConnectedPeripherals: function() {
+        console.log('found connected peripherals');
+    }
+
 }
